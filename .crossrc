@@ -1,0 +1,45 @@
+### Config file for both ZSH and BASH
+
+### Aliases
+
+# Hide/Show Hidden Files
+alias hidden_show='defaults write com.apple.finder AppleShowAllFiles YES && killall Finder /System/Library/CoreServices/Finder.app'
+alias hidden_hide='defaults write com.apple.finder AppleShowAllFiles NO && killall Finder /System/Library/CoreServices/Finder.app'
+
+# New rm
+alias rm="grm --interactive"
+
+# Add Dock Spacer
+alias dockspacer="defaults write com.apple.dock persistent-apps -array-add '{"tile-type"="spacer-tile";}'"
+
+# CPP Compile
+alias cppcompile='c++ -std=c++11 -stdlib=libc++'
+
+# Bless rEFInd
+alias blessrEFInd="sudo bless --mount /Volumes/ESP --setBoot --file /Volumes/ESP/efi/refind/refind_x64.efi --shortform"
+
+# GNU Core Utils
+# PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+# MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+# GNU Tar
+# PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+
+### Color SUpport
+# LS Color Support
+alias "ls=ls -G"
+alias "gls=gls --color=auto"
+LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
+export LS_COLORS
+
+# Cheat Color Support
+export CHEATCOLORS=true
+
+### Rbenv and Ruby-Build Setup
+eval "$(rbenv init -)"
+
+### Default Applications
+export EDITOR=atom
+
+### Homebrew Support
+export PATH="/usr/local/sbin:$PATH"
+if brew command command-not-found-init > /dev/null; then eval "$(brew command-not-found-init)"; fi
