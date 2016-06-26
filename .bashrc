@@ -27,3 +27,6 @@ fi
 export TERM=xterm-256color
 # Rbenv stuff
 eval "$(rbenv init -)"
+
+# added by travis gem
+[ -f /Users/Alexander/.travis/travis.sh ] && source /Users/Alexander/.travis/travis.sh
