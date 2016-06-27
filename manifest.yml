@@ -1,0 +1,16 @@
+root: "~/"
+
+components:
+  - src: .vim
+  - src: .config/fish
+  - src: .config/fisherman
+  - src: .config/mc
+
+config_files:
+  - src: .bashrc
+  - src: .zshrc
+  - src: .crossrc
+
+symlinks:
+  - src: .bashrc
+    dst: .bash_profile
