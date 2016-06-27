@@ -1,0 +1,35 @@
+### Config file for both ZSH and BASH
+
+### Aliases
+
+# CPP Compile
+alias cppcompile='c++ -std=c++11 -stdlib=libc++'
+
+# Bless rEFInd (have to fix for work on linux)
+#alias blessrEFInd="sudo bless --mount /Volumes/ESP --setBoot --file /Volumes/ESP/efi/refind/refind_x64.efi --shortform"
+
+# CD to root of git project
+alias gitRoot="cd $(git rev-parse --show-toplevel); ls;" 
+
+# Fix keyboard layout settings
+alias fixkeyboard="sudo update-initramfs -u -k all"
+
+# Color Support
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
+    export LS_COLORS
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+### Rbenv and Ruby-Build Setup
+eval "$(rbenv init -)"
+
+### Default Applications
+export EDITOR=vim 
