@@ -1,46 +1,94 @@
-syntax on                     " ensures syntax highlighting
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" Not Vi, ViMproved
+set nocompatible
+" For Vundle
+filetype off
 
-" set the runtime path to include Vundle and initialize
+" Set runtime path to include Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
+" Initialise Vundle
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
+" REQUIRED, Let Vundle manage Vundle, kinda recursive, but whatever
 Plugin 'VundleVim/Vundle.vim'
-
-" Airline Plugin
+" VIM Airline Plugin and its Themes
 Plugin 'vim-airline/vim-airline'
-
-" Airline Themes Plugin
 Plugin 'vim-airline/vim-airline-themes'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-" Airline Config
+let g:airline_theme='spaceport'
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-set laststatus=2
 
-"Disable gui decorations and set font
-if has('gui_running')
-  se guioptions-=m  "remove menu bar
-  se guioptions-=T  "remove toolbar
-  se guioptions-=r  "remove right-hand scroll bar
-  se guioptions-=L  "remove left-hand scroll bar
-  se guifont=Hack_Regular:h9:cANSI "Set to Source Code Pro font from Adobe
+" Codeclimate Plugin
+Plugin 'wfleming/vim-codeclimate'
+
+" Ruby on Rails Plugin
+Plugin 'rails.vim'
+
+" Syntastic Syntax Highlighting
+Plugin 'scrooloose/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_html_tidy_exec = 'tidy'	" For checking HTML5
+
+" Swift Checker Plugin (Autointigrated by Syntastic)
+Plugin 'kballard/vim-swift'
+
+" Add bundler support to vim
+Plugin 'tpope/vim-bundler'
+
+" Add rspec support to vim
+Plugin 'thoughtbot/vim-rspec'
+let g:rspec_runner = "os_x_iterm2"
+
+" Close Plugin include area
+call vundle#end()
+filetype plugin indent on
+
+" Now start normal VIM Config area
+
+" Something with powerline
+" set rtp+=$HOME/.local/lib/python2.7/site-packages/powerline/bindings/vim/
+" Always show statusline
+set laststatus=2
+" Don't show default mode indicator, just use airline
+set noshowmode
+" Show syntax by default
+syntax on
+" Show line numbers
+set number
+" Set color of line numbers
+hi LineNr term=bold cterm=NONE ctermfg=LightGreen ctermbg=DarkGrey gui=NONE guifg=LightGreen guibg=DarkGrey
+
+" Set color of cursor line number
+if v:version > 700
+	hi CursorNr term=bold,underline cterm=bold ctermfg=LightGreen ctermbg=DarkGrey gui=bold guifg=LightGreen guibg=DarkGrey
 endif
+
+" Indent depends on file type
+if has("autocmd")
+	"Enable file type detection
+	filetype plugin indent on
+endif
+
+" Change tabs with <D-#>
+map <C-1> 1gt
+map <C-2> 2gt
+map <C-3> 3gt
+map <C-4> 4gt
+map <C-5> 5gt
+map <C-6> 6gt
+map <C-7> 7gt
+map <C-8> 8gt
+map <C-9> 9gt
+
+" Open tabs with <D-t>
+map <C-w> :tabnew<CR>
+map <C-q> :tabclose<CR>
+
+" Change tabs with <C-Tab>
+map <C-Tab> :tabn<CR>
+map <C-S-Tab> :tabp<CR>
