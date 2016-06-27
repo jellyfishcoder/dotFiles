@@ -2,6 +2,9 @@
 
 ### Aliases
 
+# Xtensa esp8266 toolchain
+alias espToolchain='PATH=/opt/Espressif/crosstool-NG/builds/xtensa-lx106-elf/bin:$PATH'
+
 # CPP Compile
 alias cppcompile='c++ -std=c++11 -stdlib=libc++'
 
