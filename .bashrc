@@ -8,13 +8,15 @@ fi
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 
-### Pip Completion
+# pip bash completion start
 _pip_completion()
 {
 	COMPREPLY=( $( COMP_WORDS="${COMP_WORDS[*]}" \
 	COMP_CWORD=$COMP_CWORD \
 	PIP_AUTO_COMPLETE=1 $1 ) )
 }
+complete -o default -F _pip_completion pip
+# pip bash completion end
 
 ### Import universal config file
 source ~/.crossrc
