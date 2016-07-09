@@ -1,6 +1,22 @@
 ### Config file for both ZSH and BASH
 
+
 ### Aliases
+
+# LOTR
+alias lotr='calendar -f /usr/share/calendar/calendar.lotr -A 365'
+
+# AAFIRE
+alias aafire='aafire -extended -driver curses -reverse -dim -normal -bold -boldfont'
+
+# Connect to serial terminal (Connects to first one in ls)
+alias zTermConn='zts=$(ls /dev/ | grep cu.usbserial | cut -d\  -f 2); screen /dev/$zts -f 115200,cs8,-parenb,-cstopb,-hubcl;'
+
+# Update Arduino Git Libraries
+alias arduinoLibUpdate='cd /Users/Alexander/Documents/Arduino/; ./update.sh;'
+
+# Compile for ESP8266
+alias esp8266Comp='/opt/Espressif/environment.sh'
 
 # Developing brew cask
 alias productionBrewCask='/Users/Alexander/Documents/homebrew-cask/developer/bin/production_brew_cask'
