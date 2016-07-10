@@ -1,0 +1,23 @@
+## Syntax Highlighting (from https://github.com/nanorc/nanorc.git)
+include ~/.nano/syntax/*
+
+## Setup File Backups in Backup Directory
+set backup
+set backupdir "~/.nano/backups"
+
+## Disable Hard-Wrapping (it breaks code files), Instead Use Soft-Wrap
+set nowrap
+set softwrap
+
+## Setup Indentation and Tabs
+set tabsize 4	# (8 by default)
+set autoindent
+
+## Enable Mouse Support
+set mouse
+
+## Remember Cursor Position
+set positionlog
+
+## Search From Bottom to Top (for navigating log files)
+set backwards
