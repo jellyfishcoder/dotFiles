@@ -1,5 +1,11 @@
 ### Custom Prompt
-export PS1="\[\033[38;5;4m\]\A>\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;1m\][\$?]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;10m\]\u\[$(tput sgr0)\]\[\033[38;5;13m\]@\h\[$(tput sgr0)\]\[\033[38;5;2m\]:\[$(tput sgr0)\]\[\033[38;5;6m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;10m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+PROMPTLINE="1"
+if [ PROMPTLINE = "1" ]
+then
+	source ~/.shell_prompt.sh
+else
+	export PS1="\[\033[38;5;4m\]\A>\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;1m\][\$?]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;10m\]\u\[$(tput sgr0)\]\[\033[38;5;13m\]@\h\[$(tput sgr0)\]\[\033[38;5;2m\]:\[$(tput sgr0)\]\[\033[38;5;6m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]\[\033[38;5;10m\]\\$\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+fi
 
 ### Bash Completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
@@ -22,9 +28,9 @@ complete -o default -F _pip_completion pip
 source ~/.crossrc
 
 # Import powerline
-if [ -f ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
-	source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
-fi
+#if [ -f ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
+#	source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+#fi
 # Using xterm with color support
 export TERM=xterm-256color
 # Rbenv stuff
@@ -36,7 +42,6 @@ eval "$(rbenv init -)"
 # Yagarto Cross Compiler Path
 export PATH="$PATH:$HOME/yagarto/yagarto-4.7.2/bin"
 export PATH="$PATH:$HOME/yagarto/yagarto-4.7.2/tools"
-
 
 # added for perl stuff in local folder
 export PATH="/Users/Alexander/perl5/bin${PATH:+:${PATH}}"

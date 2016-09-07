@@ -1,3 +1,9 @@
+# Use zshcompletion
+if [ -f $(brew --prefix)/etc/zsh_completion ]; then
+	. $(brew --prefix)/etc/zsh_completion ]
+fi
+
+
 # Use antiword
 source $(brew --prefix)/share/antigen.zsh
 
