@@ -18,8 +18,8 @@ alias gitRoot="cd $(git rev-parse --show-toplevel); ls;"
 alias fixkeyboard="sudo update-initramfs -u -k all"
 
 # Color Support
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+#if [ -x /usr/bin/dircolors ]; then
+#    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
     export LS_COLORS
     alias ls='ls --color=auto'
@@ -29,7 +29,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
-fi
+#fi
 
 ### Rbenv and Ruby-Build Setup
 eval "$(rbenv init -)"
