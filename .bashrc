@@ -1,5 +1,5 @@
 ### Custom Prompt
-PROMPTLINE="1"
+PROMPTLINE="0"
 if [ PROMPTLINE = "1" ]
 then
 	source ~/.shell_prompt.sh
@@ -27,10 +27,6 @@ complete -o default -F _pip_completion pip
 ### Import universal config file
 source ~/.crossrc
 
-# Import powerline
-#if [ -f ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh ]; then
-#	source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
-#fi
 # Using xterm with color support
 export TERM=xterm-256color
 # Rbenv stuff
@@ -43,9 +39,12 @@ eval "$(rbenv init -)"
 export PATH="$PATH:$HOME/yagarto/yagarto-4.7.2/bin"
 export PATH="$PATH:$HOME/yagarto/yagarto-4.7.2/tools"
 
+# devkitPro and devkitARM
+export DEVKITPRO="/Users/Alexander/devkitPro"
+export DEVKITARM="${DEVKITPRO}/devkitARM"
 # added for perl stuff in local folder
 export PATH="/Users/Alexander/perl5/bin${PATH:+:${PATH}}"
-PERL5LIB="/Users/Alexander/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/Alexander/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/Alexander/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/Alexander/perl5"; export PERL_MM_OPT;
+export PERL5LIB="/Users/Alexander/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
+export PERL_LOCAL_LIB_ROOT="/Users/Alexander/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
+export PERL_MB_OPT="--install_base \"/Users/Alexander/perl5\""
+export PERL_MM_OPT="INSTALL_BASE=/Users/Alexander/perl5"

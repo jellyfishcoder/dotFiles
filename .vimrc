@@ -46,7 +46,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_html_tidy_exec = 'tidy'	" For checking HTML5
+let g:syntastic_html_tidy_exec = 'tidy'	" For checking HTML4
 let g:syntastic_cpp_include_dirs = ['/usr/local/include','/Applications/Arduino.app/Contents/Java/libraries'] " Mac C Libs
 let g:syntastic_cpp_auto_refresh_includes = 1
 let g:syntastic_cpp_check_header = 1
@@ -71,6 +71,9 @@ Plugin 'gfontenot/vim-xcode'
 " GitGutter Plugin
 Plugin 'airblade/vim-gitgutter'
 
+" ViMTeX Plugin
+Plugin 'lervag/vimtex'
+
 " Close Plugin include area
 call vundle#end()
 filetype plugin indent on
@@ -89,9 +92,9 @@ set number
 hi LineNr term=bold cterm=NONE ctermfg=LightGreen ctermbg=DarkGrey gui=NONE guifg=LightGreen guibg=DarkGrey
 
 " Set color of cursor line number
-if v:version > 700
-	hi CursorNr term=bold,underline cterm=bold ctermfg=Green ctermbg=DarkGrey gui=bold guifg=Green guibg=DarkGrey
-endif
+"if v:version > 700
+hi CursorNr term=bold,underline cterm=italic ctermfg=Green ctermbg=DarkGrey gui=italic guifg=Green guibg=DarkGrey
+"endif
 
 " Indent depends on file type
 if has("autocmd")
