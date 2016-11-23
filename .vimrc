@@ -74,6 +74,9 @@ Plugin 'airblade/vim-gitgutter'
 " ViMTeX Plugin
 Plugin 'lervag/vimtex'
 
+" YouCompleteMe Syntax Completion Plugin (Breaks Python)
+"Plugin 'Valloric/YouCompleteMe'
+
 " Close Plugin include area
 call vundle#end()
 filetype plugin indent on
@@ -82,8 +85,10 @@ filetype plugin indent on
 
 " Always show statusline
 set laststatus=2
+
 " Don't show default mode indicator, just use airline
 set noshowmode
+
 " Show syntax by default
 syntax on
 " Show line numbers
