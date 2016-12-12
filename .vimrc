@@ -74,8 +74,8 @@ Plugin 'airblade/vim-gitgutter'
 " ViMTeX Plugin
 Plugin 'lervag/vimtex'
 
-" YouCompleteMe Syntax Completion Plugin (Breaks Python)
-"Plugin 'Valloric/YouCompleteMe'
+" Neocomplete Code Completion Plugin
+Plugin 'Shougo/neocomplete.vim'
 
 " Close Plugin include area
 call vundle#end()
@@ -106,6 +106,9 @@ if has("autocmd")
 	"Enable file type detection
 	filetype plugin indent on
 endif
+
+" MacVim Font
+set gfn=Hack 
 
 " Change tabs with Control+#
 nmap <C-1> 1gt

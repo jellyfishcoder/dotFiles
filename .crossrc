@@ -3,7 +3,11 @@
 ## Calanders
 alias computer='calendar -f /usr/share/calendar/calendar.computer -A 365'  
 alias lotr='calendar -f /usr/share/calendar/calendar.lotr -A 365'
-##
+
+## Other
+
+# Local home ping scan
+alias lh-ping-scan='for ((i=1; i<=255; i++)); do ping -c 2 -i 1 10.0.1.$i; done'
 
 # Backup brew stuff into Brewfile
 alias brew-back='brew bundle dump --force'
@@ -84,7 +88,7 @@ export DEVKITPRO="/Users/Alexander/devkitPro"
 export DEVKITARM="${DEVKITPRO}/devkitARM"
 
 # Libnds Cereal
-export LIBNDS_CEREAL="~/cereal/include"
+export LIBNDS_CEREAL="/Users/Alexander/cereal"
 
 # added for perl stuff in local folder
 export PATH="/Users/Alexander/perl5/bin${PATH:+:${PATH}}"
