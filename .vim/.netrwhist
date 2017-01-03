@@ -1,9 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/Alexander/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.1.1/app/views'
-let g:netrw_dirhist_2='/Users/Alexander/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.1.1/app/views/devise'
-let g:netrw_dirhist_3='/Users/Alexander/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/devise-4.1.1/app/views/devise/registrations'
-let g:netrw_dirhist_4='/Users/Alexander/Downloads/cegui-0.8.7/cegui'
-let g:netrw_dirhist_5='/Users/Alexander/.cache'
-let g:netrw_dirhist_6='/usr/local/Cellar/irssi/0.8.20'
-let g:netrw_dirhist_7='/Users/Alexander/UnityProjects'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/Alexander/Development/jigsaw/stylesheets'
+let g:netrw_dirhist_2='/Users/Alexander/Development/Tremors/source'
+let g:netrw_dirhist_3='/Users/Alexander/Development/Remnant/source'

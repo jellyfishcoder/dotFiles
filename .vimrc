@@ -1,4 +1,10 @@
+" THE FOLLOWING LINE MUST BE FIRST (paradox kinda, as this line is first)
+set t_Co=256	" Set 256 colours graphics
+
+" Leader is a space
+let mapleader=" "
 " Not Vi, ViMproved
+
 set nocompatible
 " For Vundle
 filetype off
@@ -76,12 +82,60 @@ Plugin 'lervag/vimtex'
 
 " Neocomplete Code Completion Plugin
 Plugin 'Shougo/neocomplete.vim'
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+if !exists('g:neocomplete#keyword_patterns')
+	let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+" Key Remapings
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+	return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+	" For no inserting <CR> key.
+	"return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+
+" Code Alignment Plugin, for when the repo you clone doesnt do stuff right and
+" you spend ten hours fixing their alignment and style to be possible to even
+" look at without your eyes bleeding, then make the change, then your pull
+" gets rejected because they find your style and alignment terrible because
+" they are terrible.
+Plugin 'junegunn/vim-easy-align'
+
+" Limelight Plugin
+Plugin 'junegunn/limelight.vim'
+nmap <Leader>l <Plug>(Limelight)
+xmap <Leader>l <Plug>(Limelight)
+
+" COments (you can tell i did this b4 plug cause it looks like crap)
+Plugin 'scrooloose/nerdcommenter'
+
+" My own plugin :) (which sucks and crashes)
+"Plugin 'jellyfishcoder/iVim'
 
 " Close Plugin include area
 call vundle#end()
 filetype plugin indent on
 
 " Now start normal VIM Config area
+
+function RangerExplorer()
+	exec "silent !ranger --choosefile=/tmp/vim_ranger_current_file " . expand("%:p:h")
+	if filereadable('/tmp/vim_ranger_current_file')
+		exec 'edit ' . system('cat /tmp/vim_ranger_current_file')
+		call system('rm /tmp/vim_ranger_current_file')
+	endif
+	redraw!
+endfun
+map <Leader>x :call RangerExplorer()<CR>
 
 " Always show statusline
 set laststatus=2
@@ -108,20 +162,4 @@ if has("autocmd")
 endif
 
 " MacVim Font
-set gfn=Hack 
-
-" Change tabs with Control+#
-nmap <C-1> 1gt
-nmap <C-2> 2gt
-nmap <C-3> 3gt
-nmap <C-4> 4gt
-nmap <C-5> 5gt
-nmap <C-6> 6gt
-nmap <C-7> 7gt
-nmap <C-8> 8gt
-nmap <C-9> 9gt
-
-" Open tabs with Control+W
-nmap <C-w> :tabnew<CR>
-" Close tabs with Control+Q
-nmap <C-q> :tabclose<CR>
+set gfn=Hack
